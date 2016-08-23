@@ -4,9 +4,14 @@
 // Patterns http://bl.ocks.org/dwtkns/7405490
 $( document ).ready(function() {
 
+  var docWidth = document.documentElement.clientWidth;
+  var docHeight = document.documentElement.clientHeight;
   var width = $('#map-stage').width();
   var height = width * 0.5;
   var scale0 = width;
+
+  if (height > docHeight)
+    height = docHeight * 0.8;
 
   var projection = d3.geo.albersUsa();
 
