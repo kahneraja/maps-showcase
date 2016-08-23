@@ -1,5 +1,6 @@
 svg {
-  background: #fff;
+  -webkit-filter: drop-shadow( -5px -5px 5px rgb(127, 126, 125) );
+  filter: drop-shadow( -5px -5px 5px rgb(127, 126, 125) ); /* Same syntax as box-shadow */
 }
 
 .overlay {
@@ -7,8 +8,9 @@ svg {
 }
 
 .state {
-  stroke: #fff;
+  stroke: rgb(127, 126, 125);
   pointer-events: all;
+  stroke-width: 2;
 }
 
 .state:hover {
