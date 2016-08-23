@@ -53,7 +53,9 @@ $( document ).ready(function() {
       })
       .on('mousedown.log', function (d) {
         console.log(d.id);
-        alert(d.id);
+        setTimeout(function(){
+          $('#modal-dialog-state-1').click();
+        }, 0);
       });
   });
 
