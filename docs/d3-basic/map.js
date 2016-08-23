@@ -49,6 +49,7 @@ $( document ).ready(function() {
       })
       .on('mousedown.log', function (d) {
         console.log(d.id);
+        alert(d.id);
       });
   });
 
