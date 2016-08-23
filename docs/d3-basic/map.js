@@ -11,7 +11,7 @@ $( document ).ready(function() {
   var scale0 = width;
 
   if (height > docHeight)
-    height = docHeight * 0.8;
+    height = docHeight * 0.75;
 
   var projection = d3.geo.albersUsa();
 
