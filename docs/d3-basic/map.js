@@ -4,9 +4,13 @@
 // Patterns http://bl.ocks.org/dwtkns/7405490
 $( document ).ready(function() {
 
+  var mobileWidth = 500;
   var width = document.documentElement.clientWidth;
-  var height = width / 2;
+  var height = width * 0.5;
   var scale0 = width;
+
+  if (width < mobileWidth)
+    height = width * 0.75;
 
   var projection = d3.geo.albersUsa();
 
