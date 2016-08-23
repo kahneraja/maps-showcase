@@ -74,7 +74,7 @@ $( document ).ready(function() {
       .append("image")
       .attr({
         'xmlns:xlink':'http://www.w3.org/1999/xlink',
-        'xlink:href':'img/' + id + '.jpg',
+        'xlink:href':'img/tile/' + id + '.jpg',
         transform:"translate(0,0)",
         x: '0',
         y: '0',
