@@ -1,0 +1,24 @@
+svg {
+  background: #fff;
+}
+
+.overlay {
+  fill: none;
+}
+
+.state {
+  stroke: #fff;
+  pointer-events: all;
+}
+
+.state:hover {
+  fill: red;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}

@@ -1,101 +1,10 @@
 
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-
-svg {
-  background: #eee;
-}
-
-.sphere {
-  fill: #fff;
-}
-
-.land {
-  fill: #000;
-}
-
-.boundary {
-  fill: none;
-  stroke: #fff;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.overlay {
-  fill: none;
-  pointer-events: all;
-}
-
-.state-boundary {
-  fill: none;
-  stroke: #fff;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="map.css">
+<link rel="stylesheet" type="text/css" href="state.css">
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script src="map.js"></script>
 <body>
-<script>
-
-// WORLD  https://bl.ocks.org/mbostock/raw/eec4a6cda2f573574a11/
-// US     https://bl.ocks.org/mbostock/raw/4090848/
-
-var width = 960,
-    height = 500,
-    scale0 = 1000;
-
-var projection = d3.geo.albersUsa();
-
-var zoom = d3.behavior.zoom()
-    .translate([width / 2, height / 2])
-    .scale(scale0)
-    .scaleExtent([scale0, 8 * scale0])
-    .on("zoom", zoomed);
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g");
-
-var g = svg.append("g");
-
-svg.append("rect")
-    .attr("class", "overlay")
-    .attr("width", width)
-    .attr("height", height);
-
-svg
-    .call(zoom)
-    .call(zoom.event);
-
-d3.json("us.json", function(error, us) {
-  if (error) throw error;
-
-  g.insert("path", ".graticule")
-      .datum(topojson.feature(us, us.objects.land))
-      .attr("class", "land")
-      .attr("d", path);
-
-  g.insert("path", ".graticule")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("class", "state-boundary")
-      .attr("d", path);
-});
-
-function zoomed() {
-  projection
-      .translate(zoom.translate())
-      .scale(zoom.scale());
-
-  g.selectAll("path")
-      .attr("d", path);
-}
-
-d3.select(self.frameElement).style("height", height + "px");
-
-</script>
