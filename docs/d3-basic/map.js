@@ -6,12 +6,14 @@ $( document ).ready(function() {
 
   var docWidth = document.documentElement.clientWidth;
   var docHeight = document.documentElement.clientHeight;
+  var maxHeight = docHeight * 0.5;
   var width = $('#map-stage').width();
   var height = width * 0.5;
   var scale0 = width;
 
-  if (height > docHeight)
-    height = docHeight * 0.75;
+  if (height > maxHeight){
+    height = maxHeight;
+  }
 
   var projection = d3.geo.albersUsa();
 
