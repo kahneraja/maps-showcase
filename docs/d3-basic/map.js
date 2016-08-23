@@ -4,9 +4,9 @@
 // Patterns http://bl.ocks.org/dwtkns/7405490
 $( document ).ready(function() {
 
-  var width = 960,
-      height = 500,
-      scale0 = 1000;
+  var width = document.documentElement.clientWidth;
+  var height = width / 2;
+  var scale0 = width;
 
   var projection = d3.geo.albersUsa();
 
