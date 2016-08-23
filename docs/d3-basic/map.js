@@ -19,7 +19,7 @@ $( document ).ready(function() {
   var path = d3.geo.path()
       .projection(projection);
 
-  var svg = d3.select("body")
+  var svg = d3.select("#map-stage")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
